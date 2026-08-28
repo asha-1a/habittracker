@@ -1,0 +1,301 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <title>Habit Tracker</title>
+        <link rel="icon" type="image/x-icon" href="../pink-flower-sakura-free-png.webp">
+        <link href="https://fonts.cdnfonts.com/css/kindegarten" rel="stylesheet">
+                
+    </head>
+    <body>
+        <!-- TITLE AND SUBTIBLE-->
+        <h1 id="title">Month</h1>
+        <h2 id="subtitle">Monthly Habit Tracker</h2>
+
+        <!--CALENDAR AREA-->
+        <div id="calendarContainer">
+            <div id="calendarDiv">
+                <div id="calendarHeading">
+                    <p id="habitTitle">My New Habit</p>
+                    <p id="totalDays">0/31</p>
+               </div>
+                <div id="calendarContent">
+                    <div id="tracker"></div>
+                    <div class="days">
+                        <div id="day1" class="day">1</div>
+                        <div id="day2" class="day">2</div>
+                        <div id="day3" class="day">3</div>
+                        <div id="day4" class="day">4</div>
+                        <div id="day5" class="day">5</div>
+                        <div id="day6" class="day">6</div>
+                        <div id="day7" class="day">7</div>
+                    </div>
+                    <div class="days">
+                        <div id="day8" class="day">8</div>
+                        <div id="day9" class="day">9</div>
+                        <div id="day10" class="day">10</div>
+                        <div id="day11" class="day">11</div>
+                        <div id="day12" class="day">12</div>
+                        <div id="day13" class="day">13</div>
+                        <div id="day14" class="day">14</div>
+                    </div>
+                    <div class="days">
+                        <div id="day15" class="day">15</div>
+                        <div id="day16" class="day">16</div>
+                        <div id="day17" class="day">17</div>
+                        <div id="day18" class="day">18</div>
+                        <div id="day19" class="day">19</div>
+                        <div id="day20" class="day">20</div>
+                        <div id="day21" class="day">21</div>
+                    </div>    
+                    <div class="days">
+                        <div id="day22" class="day">22</div>
+                        <div id="day23" class="day">23</div>
+                        <div id="day24" class="day">24</div>
+                        <div id="day25" class="day">25</div>
+                        <div id="day26" class="day">26</div>
+                        <div id="day27" class="day">27</div>
+                        <div id="day28" class="day">28</div>
+                    </div>    
+                    <div class="days">
+                        <div id="day29" class="day">29</div>
+                        <div id="day30" class="day">30</div>
+                        <div id="day31" class="day">31</div>
+                        <div class="day" style="background-color:white;"></div>
+                        <div class="day" style="background-color: white;"></div>
+                        <div class="day" style="background-color: white;"></div>
+                        <div class="day" style="background-color: white;"></div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        <button id="resetButton">Reset Button</button>          
+
+    </body>
+
+    <style>
+        body{
+            background-image: url(light-pink-bg.avif);
+            background-size: 500px;
+            background-blend-mode: lighten;
+            text-align:center;
+            font-family: "Kindegarten", sans-serif;
+        
+        }
+
+        #title{
+            margin-top:100px;
+            line-height: 10px;
+
+        }
+
+        #subtitle{
+            opacity: 0.7;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        #calendarContainer{
+            display: flex;
+            justify-content: center;    
+
+        }
+
+        #calendarDiv {
+            background-color: white;
+            border-radius: 10px 10px 20px 20px;
+            margin: auto;
+            align-content: center;
+            text-align: center;
+        }
+
+        #calendarHeading {
+            display: flex;
+            justify-content: space-between;
+            border-radius: 10px 10px 0px 0px;
+            border: 2px solid black;
+            padding: 0px 20px;
+            font-size: 20px;
+            background-color: pink;
+            line-height: 0px;
+
+        }
+
+        #calendarContent {
+            padding: 20px;
+            border: 2px solid black;
+        }
+
+        .days{
+            display: flex;
+        }
+
+        .day {
+            width: 30px;
+            margin: 3px;
+            padding: 10px;
+            font-size: 15px;
+            text-align:center;
+            border-radius: 20px;
+            /*background-color: pink; */
+            /* border:2px solid black; */ 
+        }
+
+    </style>
+
+    <script>
+        /* GET THE DATE */
+        var date = new Date(); //create an instance of a Date object
+        console.log(date); //print the date to be console
+
+        /* EXTRACT THE CURRENT DATE INFO */
+        var currentMonth = date.getMonth();
+        var currentDay = date.getDay();
+        var currentDate = date.getDate();
+        var currentYear = date.getFullYear();
+
+        console.log("The current month is " + currentMonth); // current month - 1
+        console.log("The current day is " + currentDay); //day of the week
+        console.log("The current date is " + currentDate); // current date/number
+        console.log("The current year is " + currentYear); // current year
+
+        /* IMPORTANT DATE INFO*/
+        var months = [
+            "January", //0
+            "February", //2
+            "March", //3
+            "April", //4
+            "May", //5
+            "June", //6
+            "July", //7
+            "August", //8
+            "September", //9
+            "October", //10
+            "November", //11
+            "December", // 12
+
+        ];
+
+        /*SET THE CORRECT MONTH*/
+        var title = document.getElementById("title"); // reference to the title element
+        title.innerHTML = "🌸" + months[currentMonth] +  "🌸"; //change the title to August  
+
+        /* UPDATE THE CALENDAR INFO */
+        var habitTitle = document.getElementById("habitTitle"); //reference to the habit title element
+        habitTitle.onclick = function () {
+
+            //ask a question and save the answer to "habits"
+            let habit = prompt("What is your Habit rn?", habitTitle.innerHTML);
+            if(habits.length == 0 ){ //if they didnt type anything
+                habitTitle.innerHTML = "Click to set your habit";                
+            }else{ //update the habit to show what they typed
+                habitTitle.innerHTML = habits;
+            }
+        }
+
+        /* SET THE TOTAL DAYS */
+        var daysInTheMonthList = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; //how many days in each month 
+        var daysInTheMonth = daysInTheMonthList[currentMonth];
+        // Ex,5th index => 6th month => June => 30 days
+
+        var daysCompleted = 0;
+        var totalDays = document.getElementById("totalDays"); //reference to the day fraction
+        totalDays.innerHTML = "0/" + daysInTheMonth; //update the fraction
+
+        /*SETUP THE CALENDAR DAYS*/
+        var dayCount = 0;
+        var rowCount = 0;
+        var days = document.getElementsByClassName("day"); // store a list of all the rows
+        for (var i = 0; i < days.length; i++) { //search row one by one
+            var day = days[rowCount].getElementsByClassName("day"); // temporaririly pick a row
+            for (var j = 0; j < dayCount; j++) { // grab a column one by one
+
+                //add a border to the current date
+                if(dayCount == currentDate - 1){
+                    day[j].setAttribute("style", "color: rgb(234, 1, 144;");
+                    day[j].setAttribute("style", "border: 2px solid blacj;");
+                }
+
+                //update the correct date number and id and hide any excess numbers
+                if (dayCount < daysInTheMonth) {
+                    day[j].innerHTML = dayCount + 1;
+                    day[j].setAttribute("id", "day" + (dayCount + 1));
+                    dayCount++; // repeat for everyday
+                } else {
+                    day[j].innerHTML = "";
+                    day[j].setAttribute("style", "background-color: white;");
+                }
+            }
+            rowCount++; //repeat for every row
+
+        }
+
+    /*INITIALIZE COMPLETED ARRAY*/
+    var completed = new Array(31);
+    for (var i = 0; i < dayCount; i++) {
+        var tempString = 
+        "" + (currentMonth + 1) + "-" + (i + 1) + "-" + currentYear;
+        console.log("storing date: " + tempString);
+        var tempDay = localStorage.getItem(tempString);
+        console.log(tempDay);
+        if(tempDay == null || tempDay == "false"){
+            localStorage.setItem(tempString, "false");
+        } else if (tempDay == "true") {
+            daysCompleted++;
+        }
+        totalDays.innerHTML = daysCompleted + "/" + daysInThisMonth;
+        }
+
+        console.log("completed array: " + completed);
+        console.log("total days completed: " + daysCompleted);
+
+        /*CHECK STORAGE AND UPDATE COMPLETED ARRAY*/
+
+        for (var i = 0; i < currentDate; i++){
+            var tempString = 
+            "" + (currentMonth + 1) + "-" + (i + 1) + currentYear;
+            console.log(tempString);
+
+            var chosenDay = localStorage.getItem(tempString);
+            console.log(i +1 + ":" + chosenDay);
+            var chosenDayDiv = document.getElementById("day" + (i + 1));
+            if (chosenDay === "true") {
+                chosenDayDiv.style.backgroundColor = "pink";
+            } else if (chosenDay === "false") {
+                chosenDayDiv.style.backgroundColor = "white";
+            }
+        }
+
+        /*UPDATE COMPLETED ON CALENDAR*/
+        var dayDivs = document.querySelectorAll(".day");
+        for (var i=0; i<currentDate;i++) {
+            dayDivs[i].onclick = function (e) {
+                console.log(e);
+                var num = e.target.innerText;
+                var selectedDate = document.getElementById(e.target.id);
+                var storageString = 
+                "" + (currentMonth + 1) + "-" + num + "-" + currentYear;
+
+                if(localStorage.getItem(storageString) === "false") {
+                    selectedDate.style.backgroundColor = "pink";
+                    localStorage.setItem(storageString, true);
+                    daysCompleted++;
+
+                } else if(localStorage.getItem(storageString) === "true") {
+                    selectedDate.style.backgroundColor = "white";
+                    localStorage.setItem(storageString, false);
+                    daysCompleted--;
+
+                }
+
+                totalDays.innerHTML = daysCompleted + "/" + dayCount;
+                console.log(daysCompleted, currentDate);
+                if(daysCompleted === currenyDate){
+                    alert("NICE PROGRESS YAY");
+                }
+            }
+        }
+
+         
+
+    </script>
+</html>
