@@ -298,7 +298,7 @@
         /* RESET BUTTON */
         var resetButton = getElementById("resetButton");
         resetButton.onclick = function () {
-            for (var i = o; i < dayCount;) i++ {
+            for (var i = 0; i < dayCount; i++) {
                 var tempStrings =
                 "" + (currentMonth + 1) + "-" + (i + 1) + "-" +  currentYear;
                 console.log(tempStrings);
