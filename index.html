@@ -195,7 +195,7 @@
         /* SET THE TOTAL DAYS */
         var daysInTheMonthList = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; //how many days in each month 
         var daysInTheMonth = daysInTheMonthList[currentMonth];
-        // Ex,5th index => 6th month => June => 30 days
+        // Ex ,5th index => 6th month => June => 30 days
 
         var daysCompleted = 0;
         var totalDays = document.getElementById("totalDays"); //reference to the day fraction
@@ -212,7 +212,7 @@
                 //add a border to the current date
                 if(dayCount == currentDate - 1){
                     day[j].setAttribute("style", "color: rgb(234, 1, 144;");
-                    day[j].setAttribute("style", "border: 2px solid blacj;");
+                    day[j].setAttribute("style", "border: 2px solid black;");
                 }
 
                 //update the correct date number and id and hide any excess numbers
@@ -229,9 +229,9 @@
 
         }
 
-    /*INITIALIZE COMPLETED ARRAY*/
-    var completed = new Array(31);
-    for (var i = 0; i < dayCount; i++) {
+        /*INITIALIZE COMPLETED ARRAY*/
+        var completed = new Array(31);
+        for (var i = 0; i < dayCount; i++) {
         var tempString = 
         "" + (currentMonth + 1) + "-" + (i + 1) + "-" + currentYear;
         console.log("storing date: " + tempString);
